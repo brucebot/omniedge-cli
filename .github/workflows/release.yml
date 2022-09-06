@@ -339,7 +339,6 @@ jobs:
           sudo -E apt-get install -y openssl build-essential libssl-dev zip autoconf
           sudo -E apt-get install -y g++-riscv64-linux-gnu gcc-riscv64-linux-gnu
           BUILD_ENV=${{ env.ENVIRONMENT }} make build
-          upx -9 -k ./out/omniedge
           zip -j ./omniedge-${{ github.ref_name }}-${{ matrix.platform }}.zip ./out/omniedge
           sha256sum ./omniedge-${{ github.ref_name }}-${{ matrix.platform }}.zip > ./omniedge-${{ github.ref_name }}-${{ matrix.platform }}.zip.sha256
           cat ./omniedge-${{ github.ref_name }}-${{ matrix.platform }}.zip.sha256
@@ -401,7 +400,6 @@ jobs:
             chsh -s bash
             make generate
             BUILD_ENV=${{ env.ENVIRONMENT }} make build-freebsd
-            upx -9 -k ./out/omniedge
             zip -j ./omniedge-${{ github.ref_name }}-freebsd-13.1.zip ./out/omniedge
       
       - name: Archive package
@@ -475,7 +473,6 @@ jobs:
           sudo -E apt-get install -y zip upx
           make generate
           BUILD_ENV=${{ env.ENVIRONMENT }} make build
-          upx -9 -k ./out/omniedge
           zip -j ./omniedge-${{ github.ref_name }}-${{ matrix.platform }}.zip ./out/omniedge
           sha256sum ./omniedge-${{ github.ref_name }}-${{ matrix.platform }}.zip > ./omniedge-${{ github.ref_name }}-${{ matrix.os }}.zip.sha256
       
@@ -485,7 +482,6 @@ jobs:
           brew install autoconf automake libtool coreutils upx
           make generate
           BUILD_ENV=${{ env.ENVIRONMENT }} make build-darwin
-          upx -9 -k ./out/omniedge
           zip -j ./omniedge-${{ github.ref_name }}-${{ matrix.platform }}.zip ./out/omniedge
           sha256sum ./omniedge-${{ github.ref_name }}-${{ matrix.platform }}.zip > ./omniedge-${{ github.ref_name }}-${{ matrix.platform }}.zip.sha256
           cat ./omniedge-${{ github.ref_name }}-${{ matrix.platform }}.zip.sha256
