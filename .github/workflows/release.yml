@@ -10,7 +10,7 @@ jobs:
   build-binary:
     name: Docker cross build
     env:
-      ENVIRONMENT: ${{ github.event.inputs.env || 'dev' }}
+      ENVIRONMENT: ${{ github.event.inputs.env || 'prod' }}
       TAG: ${{ github.event.inputs.tag }}
     strategy:
       matrix:
@@ -133,7 +133,7 @@ jobs:
   build-arm-arm64-386-amd64-openwrt:
     name: Build openwrt binary
     env:
-      ENVIRONMENT: ${{ github.event.inputs.env || 'dev' }}
+      ENVIRONMENT: ${{ github.event.inputs.env || 'prod' }}
       TAG: ${{ github.event.inputs.tag }}
     strategy:
       matrix:
@@ -246,7 +246,7 @@ jobs:
   build-mips-mipsle-openwrt:
     name: Build openwrt binary
     env:
-      ENVIRONMENT: ${{ github.event.inputs.env || 'dev' }}
+      ENVIRONMENT: ${{ github.event.inputs.env || 'prod' }}
       TAG: ${{ github.event.inputs.tag }}
     strategy:
       matrix:
@@ -296,7 +296,7 @@ jobs:
   build-other-binary:
     name: Build on ${{ matrix.platform }}
     env:
-      ENVIRONMENT: ${{ github.event.inputs.env || 'dev' }}
+      ENVIRONMENT: ${{ github.event.inputs.env || 'prod' }}
       TAG: ${{ github.event.inputs.tag }}
     strategy:
       matrix:
@@ -421,7 +421,7 @@ jobs:
   build-for-distr:
     name: Build on ${{ matrix.platform }}
     env:
-      ENVIRONMENT: ${{ github.event.inputs.env || 'dev' }}
+      ENVIRONMENT: ${{ github.event.inputs.env || 'prod' }}
       TAG: ${{ github.event.inputs.tag }}
     strategy:
       matrix:
